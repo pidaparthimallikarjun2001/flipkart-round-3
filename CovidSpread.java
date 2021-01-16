@@ -14,16 +14,16 @@ public class CovidSpread {
                 }
             }
         }
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         int time = 0;
         while(!queue.isEmpty() && unInfectedCount > 0) {
             time++;
             int size = queue.size();
             while(size-- > 0) {
                 int[] temp = queue.poll();
-				for (int[] d : direction) {
-					int currentI = temp[0] + d[0];
-					int currentJ = temp[1] + d[1];
+				for (int[] direction : directions) {
+					int currentI = temp[0] + direction[0];
+					int currentJ = temp[1] + direction[1];
 
 					if (currentI < 0 || currentJ < 0 || currentI >= hospital.length || currentJ >= hospital[0].length || hospital[currentI][currentJ] == 0 || hospital[currentI][currentJ] == 2) {
                         continue;
