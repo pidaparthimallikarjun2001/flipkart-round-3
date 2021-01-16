@@ -21,16 +21,18 @@ public class CovidSpread {
             int size = queue.size();
             while(size-- > 0) {
                 int[] temp = queue.poll();
-				for (int[] direction : directions) {
-					int currentI = temp[0] + direction[0];
-					int currentJ = temp[1] + direction[1];
+		    
+		for (int[] direction : directions) {
+			
+			int currentI = temp[0] + direction[0];
+			int currentJ = temp[1] + direction[1];
 
-					if (currentI < 0 || currentJ < 0 || currentI >= hospital.length || currentJ >= hospital[0].length || hospital[currentI][currentJ] == 0 || hospital[currentI][currentJ] == 2) {
-                        continue;
-                    }
-					queue.add(new int[]{currentI, currentJ}); 
-					hospital[currentI][currentJ] = 2; 
-					unInfectedCount--;
+			if (currentI < 0 || currentJ < 0 || currentI >= hospital.length || currentJ >= hospital[0].length || hospital[currentI][currentJ] == 0 || hospital[currentI][currentJ] == 2) {
+                	        continue;
+                    	}
+			queue.add(new int[]{currentI, currentJ}); 
+			hospital[currentI][currentJ] = 2; 
+			unInfectedCount--;
                 }
             }
         }
